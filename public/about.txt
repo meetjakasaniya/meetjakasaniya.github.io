@@ -1,0 +1,26 @@
+# Mit Jakasaniya - Full Stack Developer
+
+## About This Portfolio
+This portfolio showcases my journey as a Full Stack Developer. I'm **Mit Jakasaniya** (also known as **Meet Jakasaniya**), passionate about creating modern web applications using the MERN stack.
+
+## Technologies I Use
+- **Frontend**: React.js, JavaScript, Material-UI, Tailwind CSS
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB, MySQL
+- **Tools**: Git, GitHub, VS Code, Postman
+
+## My Projects
+Visit [mitjakasaniya.me](https://mitjakasaniya.me) to see my latest projects and work.
+
+## Contact Information
+- **Portfolio Website**: https://mitjakasaniya.me
+- **GitHub**: https://github.com/meetjakasaniya
+- **Name**: Mit Jakasaniya (Meet Jakasaniya)
+- **Role**: Full Stack Developer | MERN Stack Developer | Web Developer
+
+## Keywords
+Mit Jakasaniya, Meet Jakasaniya, Mit Dharmedrabhai Jakasaniya, Full Stack Developer, Web Developer, React Developer, Node.js Developer, MERN Stack Developer, JavaScript Developer, Frontend Developer, Backend Developer, Software Engineer, Portfolio Website
+
+---
+
+Looking for a Full Stack Developer? Let's connect at [mitjakasaniya.me](https://mitjakasaniya.me)!
