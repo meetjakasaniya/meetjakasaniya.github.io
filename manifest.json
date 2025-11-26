@@ -1,0 +1,15 @@
+{
+  "short_name": "Mit Jakasaniya",
+  "name": "Mit Jakasaniya - Fullstack Developer Portfolio",
+  "icons": [
+    {
+      "src": "mj-high-resolution-logo-grayscale.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#667eea",
+  "background_color": "#ffffff"
+}
