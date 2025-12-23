@@ -176,7 +176,7 @@ const Hero = () => {
                   mb: 3,
                 }}
               >
-                Full-stack developer with 2+ years building web apps. I work
+                Full-stack web developer with 2+ years building web apps. I work
                 with React.js and next.js for frontends, Node.js for backends,
                 and love solving complex problems. Always learning new tech and
                 open to interesting projects.
