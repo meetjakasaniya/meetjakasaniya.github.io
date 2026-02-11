@@ -30,15 +30,9 @@ const Hero = () => {
     }
   `;
 
-  const typewriter = keyframes`
-    from { width: 0 }
-    to { width: 100% }
-  `;
-
-  const blink = keyframes`
-    from, to { border-color: transparent }
-    50% { border-color: ${theme.palette.primary.main} }
-  `;
+  // Unused animations (kept for future reference)
+  // const typewriter = keyframes`from { width: 0 } to { width: 100% }`;
+  // const blink = keyframes`from, to { border-color: transparent } 50% { border-color: ${theme.palette.primary.main} }`;
 
   const float = keyframes`
     0%, 100% { transform: translateY(0px) }
