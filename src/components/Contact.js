@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Container,
   Typography,
   Box,
   Grid,
-  TextField,
   Button,
-  Paper,
   useTheme,
 } from "@mui/material";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -14,39 +12,9 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import axios from "axios";
 
 const Contact = () => {
   const theme = useTheme();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [status, setStatus] = useState({ type: "", message: "" });
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus({ type: "sending", message: "Sending..." });
-
-    try {
-      await axios.post("http://localhost:8080/api/contact", formData);
-      setStatus({ type: "success", message: "Message sent successfully!" });
-      setFormData({ name: "", email: "", message: "" });
-    } catch (error) {
-      setStatus({
-        type: "error",
-        message: "Failed to send message. Please try again.",
-      });
-    }
-  };
 
   const contactInfo = [
     {
@@ -210,90 +178,6 @@ const Contact = () => {
                 ))}
               </Box>
             </Box>
-          </Grid>
-
-          <Grid item xs={12} md={6}>
-            <Paper
-              elevation={3}
-              sx={{
-                p: 4,
-                bgcolor: "background.paper",
-                borderRadius: 2,
-              }}
-              className="animate-on-scroll"
-              style={{ animationDelay: "0.2s" }}
-            >
-              <Typography
-                variant="h5"
-                component="h3"
-                gutterBottom
-                fontWeight="bold"
-              >
-                Send Me a Message
-              </Typography>
-              <form onSubmit={handleSubmit}>
-                <TextField
-                  fullWidth
-                  label="Name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  margin="normal"
-                  variant="outlined"
-                />
-                <TextField
-                  fullWidth
-                  label="Email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  margin="normal"
-                  variant="outlined"
-                />
-                <TextField
-                  fullWidth
-                  label="Message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  margin="normal"
-                  variant="outlined"
-                  multiline
-                  rows={4}
-                />
-                <Button
-                  type="submit"
-                  variant="contained"
-                  color="primary"
-                  fullWidth
-                  size="large"
-                  sx={{
-                    mt: 3,
-                    py: 1.5,
-                    borderRadius: "9999px",
-                  }}
-                >
-                  Send Message
-                </Button>
-              </form>
-              {status.message && (
-                <Typography
-                  variant="body2"
-                  sx={{
-                    mt: 2,
-                    textAlign: "center",
-                    color:
-                      status.type === "success" ? "success.main" : "error.main",
-                  }}
-                >
-                  {status.message}
-                </Typography>
-              )}
-            </Paper>
           </Grid>
         </Grid>
       </Container>
