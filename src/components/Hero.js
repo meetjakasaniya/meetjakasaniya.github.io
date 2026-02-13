@@ -51,7 +51,7 @@ const Hero = () => {
   return (
     <Box
       component="section"
-      id="hero"
+      id="home"
       sx={{
         py: { xs: 8, md: 12 },
         display: "flex",
@@ -272,11 +272,9 @@ const Hero = () => {
                   borderRadius: "50%",
                   objectFit: "cover",
                   border: "6px solid transparent",
-                  background: `linear-gradient(${
-                    theme.palette.mode === "dark" ? "#1a1a2e" : "white"
-                  }, ${
-                    theme.palette.mode === "dark" ? "#1a1a2e" : "white"
-                  }), linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)`,
+                  background: `linear-gradient(${theme.palette.mode === "dark" ? "#1a1a2e" : "white"
+                    }, ${theme.palette.mode === "dark" ? "#1a1a2e" : "white"
+                    }), linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)`,
                   backgroundOrigin: "border-box",
                   backgroundClip: "content-box, border-box",
                   boxShadow: "0 20px 60px rgba(102, 126, 234, 0.3)",

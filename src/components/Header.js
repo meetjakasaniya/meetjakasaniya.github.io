@@ -1,173 +1,3 @@
-// import React, { useState, useEffect } from 'react';
-// import { AppBar, Toolbar, IconButton, Button, Drawer, List, ListItem, useMediaQuery, useTheme, Typography, Box } from '@mui/material';
-// import MenuIcon from '@mui/icons-material/Menu';
-// import Brightness4Icon from '@mui/icons-material/Brightness4';
-// import Brightness7Icon from '@mui/icons-material/Brightness7';
-
-// const Header = ({ darkMode, toggleTheme }) => {
-//   const [mobileOpen, setMobileOpen] = useState(false);
-//   const [scrolled, setScrolled] = useState(false);
-//   const theme = useTheme();
-//   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-
-//   useEffect(() => {
-//     const handleScroll = () => {
-//       setScrolled(window.scrollY > 10);
-//     };
-//     window.addEventListener('scroll', handleScroll);
-//     return () => {
-//       window.removeEventListener('scroll', handleScroll);
-//     };
-//   }, []);
-
-//   const menuItems = [
-//     { text: 'About', href: '#about' },
-//     { text: 'Experience', href: '#experience' },
-//     { text: 'Projects', href: '#projects' },
-//     { text: 'Education', href: '#education' },
-//     { text: 'Skills', href: '#skills' },
-//     { text: 'Contact', href: '#contact' },
-//   ];
-
-//   const handleDrawerToggle = () => {
-//     setMobileOpen(!mobileOpen);
-//   };
-
-//   const handleMenuClick = (href) => {
-//     setMobileOpen(false);
-//     const element = document.querySelector(href);
-//     if (element) {
-//       element.scrollIntoView({ behavior: 'smooth' });
-//     }
-//   };
-
-//   const drawer = (
-//     <Box
-//       sx={{
-//         width: 250,
-//         height: '100%',
-//         background: darkMode ? 'rgba(18, 18, 18, 0.9)' : 'rgba(255, 255, 255, 0.9)',
-//         backdropFilter: 'blur(10px)',
-//       }}
-//       role="presentation"
-//       onClick={handleDrawerToggle}
-//       onKeyDown={handleDrawerToggle}
-//     >
-//       <List>
-//         {menuItems.map((item) => (
-//           <ListItem button key={item.text} onClick={() => handleMenuClick(item.href)}>
-//             <Typography
-//               sx={{
-//                 fontWeight: 'bold',
-//                 color: darkMode ? theme.palette.primary.light : theme.palette.primary.main,
-//               }}
-//             >
-//               {item.text}
-//             </Typography>
-//           </ListItem>
-//         ))}
-//       </List>
-//     </Box>
-//   );
-
-//   return (
-//     <AppBar
-//       position="sticky"
-//       elevation={scrolled ? 4 : 0}
-//       sx={{
-//         background: scrolled
-//           ? darkMode
-//             ? 'rgba(18, 18, 18, 0.8)'
-//             : 'rgba(255, 255, 255, 0.8)'
-//           : 'transparent',
-//         backdropFilter: scrolled ? 'blur(10px)' : 'none',
-//         transition: 'background 0.3s, box-shadow 0.3s',
-//         boxShadow: scrolled ? (darkMode ? '0 4px 30px rgba(0, 0, 0, 0.1)' : '0 4px 30px rgba(0, 0, 0, 0.1)') : 'none',
-//       }}
-//     >
-//       <Toolbar sx={{ justifyContent: 'space-between' }}>
-//         <Typography
-//           variant="h6"
-//           component="div"
-//           sx={{
-//             fontWeight: 'bold',
-//             flexGrow: 1,
-//             background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-//             WebkitBackgroundClip: 'text',
-//             WebkitTextFillColor: 'transparent',
-//           }}
-//         >
-//           Mit Jakasaniya
-//         </Typography>
-
-//         {isMobile ? (
-//           <>
-//             <IconButton
-//               color="inherit"
-//               aria-label="open drawer"
-//               edge="end"
-//               onClick={handleDrawerToggle}
-//             >
-//               <MenuIcon />
-//             </IconButton>
-//             <Drawer
-//               anchor="right"
-//               open={mobileOpen}
-//               onClose={handleDrawerToggle}
-//               ModalProps={{
-//                 keepMounted: true, // Better open performance on mobile.
-//               }}
-//               sx={{
-//                 '& .MuiDrawer-paper': {
-//                   background: 'transparent',
-//                 },
-//               }}
-//             >
-//               {drawer}
-//             </Drawer>
-//           </>
-//         ) : (
-//           <Box sx={{ display: 'flex', gap: 2 }}>
-//             {menuItems.map((item) => (
-//               <Button
-//                 key={item.text}
-//                 onClick={() => handleMenuClick(item.href)}
-//                 sx={{
-//                   color: darkMode ? 'white' : 'black',
-//                   fontWeight: 'medium',
-//                   position: 'relative',
-//                   '&::after': {
-//                     content: '""',
-//                     position: 'absolute',
-//                     width: '0',
-//                     height: '2px',
-//                     bottom: '-2px',
-//                     left: '50%',
-//                     transform: 'translateX(-50%)',
-//                     backgroundColor: darkMode ? theme.palette.primary.light : theme.palette.primary.main,
-//                     transition: 'width 0.3s',
-//                   },
-//                   '&:hover::after': {
-//                     width: '100%',
-//                   },
-//                 }}
-//               >
-//                 {item.text}
-//               </Button>
-//             ))}
-//           </Box>
-//         )}
-
-//         <IconButton onClick={toggleTheme} color="inherit" sx={{ ml: 2 }}>
-//           {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
-//         </IconButton>
-//       </Toolbar>
-//     </AppBar>
-//   );
-// };
-
-// export default Header;
-
 import React, { useState, useEffect } from "react";
 import {
   AppBar,
@@ -208,16 +38,14 @@ const Header = ({ darkMode, toggleTheme }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
-  // Effect for handling header background change on scroll
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Effect for tracking active section on scroll
   useEffect(() => {
     const handleScrollActiveLink = () => {
       let currentSection = "";
@@ -225,7 +53,6 @@ const Header = ({ darkMode, toggleTheme }) => {
         const section = document.querySelector(item.href);
         if (section) {
           const sectionTop = section.offsetTop;
-          // Add an offset (e.g., 150px) so the link becomes active before the section hits the very top
           if (window.scrollY >= sectionTop - 150) {
             currentSection = item.href;
           }
@@ -234,7 +61,6 @@ const Header = ({ darkMode, toggleTheme }) => {
       setActiveLink(currentSection);
     };
     window.addEventListener("scroll", handleScrollActiveLink);
-    // Run on mount to set initial active link
     handleScrollActiveLink();
     return () => window.removeEventListener("scroll", handleScrollActiveLink);
   }, []);
@@ -249,8 +75,7 @@ const Header = ({ darkMode, toggleTheme }) => {
     }
     const element = document.querySelector(href);
     if (element) {
-      // Smooth scroll to the element, accounting for the header height
-      const headerOffset = 80; // Adjust this value based on your header's height
+      const headerOffset = 100;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition =
         elementPosition + window.pageYOffset - headerOffset;
@@ -262,11 +87,10 @@ const Header = ({ darkMode, toggleTheme }) => {
     }
   };
 
-  // Keyframes for logo animation
   const logoGlow = keyframes`
-    0% { filter: drop-shadow(0 0 5px rgba(254, 107, 139, 0.3)); }
-    50% { filter: drop-shadow(0 0 20px rgba(254, 107, 139, 0.6)); }
-    100% { filter: drop-shadow(0 0 5px rgba(254, 107, 139, 0.3)); }
+    0% { filter: drop-shadow(0 0 2px rgba(102, 126, 234, 0.5)); }
+    50% { filter: drop-shadow(0 0 10px rgba(118, 75, 162, 0.8)); }
+    100% { filter: drop-shadow(0 0 2px rgba(102, 126, 234, 0.5)); }
   `;
 
   const Logo = () => (
@@ -274,11 +98,11 @@ const Header = ({ darkMode, toggleTheme }) => {
       onClick={() => handleMenuClick("#home")}
       sx={{
         cursor: "pointer",
-        position: "relative",
-        "&:hover": {
-          transform: "scale(1.05)",
-        },
-        transition: "all 0.3s ease",
+        display: "flex",
+        alignItems: "center",
+        gap: 1,
+        "&:hover": { transform: "scale(1.02)" },
+        transition: "transform 0.3s ease",
       }}
     >
       <Typography
@@ -286,32 +110,13 @@ const Header = ({ darkMode, toggleTheme }) => {
         component="div"
         sx={{
           fontWeight: 800,
-          fontSize: { xs: "1.2rem", md: "1.5rem" },
-          background:
-            "linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)",
+          background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
-          backgroundClip: "text",
+          letterSpacing: "-0.5px",
           position: "relative",
-          "&:hover": {
-            animation: `${logoGlow} 2s ease-in-out infinite`,
-          },
-          "&::after": {
-            content: '""',
-            position: "absolute",
-            bottom: -2,
-            left: 0,
-            width: "100%",
-            height: "2px",
-            background:
-              "linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)",
-            transform: "scaleX(0)",
-            transformOrigin: "center",
-            transition: "transform 0.3s ease",
-          },
-          "&:hover::after": {
-            transform: "scaleX(1)",
-          },
+          animation: `${logoGlow} 3s infinite alternate`,
+          fontSize: { xs: "1.2rem", md: "1.5rem" }
         }}
       >
         Mit Jakasaniya
@@ -322,108 +127,49 @@ const Header = ({ darkMode, toggleTheme }) => {
   const drawer = (
     <Box
       sx={{
-        width: 280,
+        width: 300,
         height: "100%",
         background: darkMode
-          ? "linear-gradient(135deg, rgba(18, 18, 18, 0.95) 0%, rgba(30, 30, 30, 0.95) 100%)"
-          : "linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%)",
+          ? "linear-gradient(135deg, rgba(15, 15, 35, 0.95), rgba(20, 20, 40, 0.98))"
+          : "rgba(255, 255, 255, 0.95)",
         backdropFilter: "blur(20px)",
-        borderLeft: `1px solid ${darkMode ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.1)"}`,
+        p: 3,
+        display: "flex",
+        flexDirection: "column",
       }}
-      role="presentation"
     >
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          p: 3,
-          borderBottom: `1px solid ${darkMode ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.1)"}`,
-        }}
-      >
-        <Typography
-          variant="h6"
-          sx={{
-            fontWeight: 700,
-            background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-          }}
-        >
-          Navigation
+      <Box sx={{ display: "flex", justifyContent: "space-between", mb: 4, alignItems: "center" }}>
+        <Typography variant="h6" fontWeight={700} color={darkMode ? "white" : "text.primary"}>
+          Menu
         </Typography>
-        <IconButton
-          onClick={handleDrawerToggle}
-          sx={{
-            backgroundColor: darkMode
-              ? "rgba(255, 255, 255, 0.1)"
-              : "rgba(0, 0, 0, 0.05)",
-            "&:hover": {
-              backgroundColor: darkMode
-                ? "rgba(255, 255, 255, 0.2)"
-                : "rgba(0, 0, 0, 0.1)",
-              transform: "rotate(90deg)",
-            },
-            transition: "all 0.3s ease",
-          }}
-        >
+        <IconButton onClick={handleDrawerToggle} sx={{ color: darkMode ? "white" : "text.primary" }}>
           <CloseIcon />
         </IconButton>
       </Box>
-      <List sx={{ p: 2 }}>
+
+      <List sx={{ flexGrow: 1 }}>
         {menuItems.map((item, index) => (
-          <Slide
-            key={item.text}
-            direction="left"
-            in={mobileOpen}
-            timeout={300 + index * 100}
-          >
+          <Slide direction="left" in={mobileOpen} timeout={200 + index * 50} key={item.text}>
             <ListItemButton
               onClick={() => handleMenuClick(item.href)}
-              selected={activeLink === item.href}
               sx={{
-                mb: 1,
                 borderRadius: 2,
+                mb: 1,
                 py: 1.5,
-                px: 2,
-                background:
-                  activeLink === item.href
-                    ? "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
-                    : "transparent",
-                color:
-                  activeLink === item.href
-                    ? "white"
-                    : theme.palette.text.primary,
+                background: activeLink === item.href
+                  ? "linear-gradient(90deg, rgba(102, 126, 234, 0.1), transparent)"
+                  : "transparent",
+                borderLeft: activeLink === item.href ? "4px solid #764ba2" : "4px solid transparent",
                 "&:hover": {
-                  background:
-                    activeLink === item.href
-                      ? "linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%)"
-                      : darkMode
-                        ? "rgba(255, 255, 255, 0.1)"
-                        : "rgba(0, 0, 0, 0.05)",
-                  transform: "translateX(8px)",
-                },
-                transition: "all 0.3s ease",
-                "&::before": {
-                  content: '""',
-                  position: "absolute",
-                  left: 0,
-                  top: "50%",
-                  transform: "translateY(-50%)",
-                  width: "3px",
-                  height: activeLink === item.href ? "60%" : "0%",
-                  background:
-                    "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-                  borderRadius: "0 2px 2px 0",
-                  transition: "height 0.3s ease",
-                },
+                  background: darkMode ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)",
+                }
               }}
             >
               <ListItemText
                 primary={item.text}
                 primaryTypographyProps={{
-                  fontWeight: activeLink === item.href ? 600 : 500,
-                  fontSize: "1rem",
+                  fontWeight: activeLink === item.href ? 700 : 500,
+                  color: darkMode ? "white" : "text.primary"
                 }}
               />
             </ListItemButton>
@@ -431,123 +177,99 @@ const Header = ({ darkMode, toggleTheme }) => {
         ))}
       </List>
 
-      {/* Download Resume Button for Mobile */}
-      <Box sx={{ p: 2 }}>
-        <Button
-          component="a"
-          href="/Mit_Jakasaniya_Resume.pdf"
-          download="Mit_Jakasaniya_Resume.pdf"
-          startIcon={<DownloadIcon />}
-          fullWidth
-          sx={{
-            py: 1.5,
-            borderRadius: 2,
-            background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-            color: "white",
-            fontWeight: 600,
-            textTransform: "none",
-            "&:hover": {
-              background: "linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%)",
-              transform: "translateY(-2px)",
-              boxShadow: "0 4px 15px rgba(102, 126, 234, 0.4)",
-            },
-            transition: "all 0.3s ease",
-          }}
-        >
-          Download Resume
-        </Button>
-      </Box>
+      <Button
+        variant="contained"
+        startIcon={<DownloadIcon />}
+        href="/Mit_Jakasaniya_Resume.pdf"
+        download
+        className="system-cursor"
+        sx={{
+          background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+          borderRadius: 3,
+          py: 1.5,
+          textTransform: "none",
+          fontWeight: 600,
+          boxShadow: "0 4px 14px 0 rgba(118, 75, 162, 0.39)",
+          cursor: "pointer"
+        }}
+      >
+        Download Resume
+      </Button>
     </Box>
   );
 
   return (
     <AppBar
-      position="sticky"
+      position="fixed"
       elevation={0}
       sx={{
-        background: scrolled
-          ? darkMode
-            ? "linear-gradient(135deg, rgba(18, 18, 18, 0.9) 0%, rgba(30, 30, 30, 0.85) 100%)"
-            : "linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.85) 100%)"
-          : "transparent",
-        backdropFilter: scrolled ? "blur(20px) saturate(180%)" : "none",
-        boxShadow: scrolled
-          ? darkMode
-            ? "0 8px 32px rgba(0, 0, 0, 0.3)"
-            : "0 8px 32px rgba(0, 0, 0, 0.1)"
-          : "none",
-        borderBottom: scrolled
-          ? `1px solid ${darkMode ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.1)"}`
-          : "none",
-        transition: theme.transitions.create(
-          ["background", "box-shadow", "backdrop-filter", "border-bottom"],
-          {
-            duration: theme.transitions.duration.standard,
-            easing: theme.transitions.easing.easeInOut,
-          },
-        ),
+        background: "transparent",
+        boxShadow: "none",
+        top: 0,
+        left: 0,
+        right: 0,
+        transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+        padding: scrolled ? { xs: "10px 0", md: "15px 0" } : { xs: "20px 0", md: "30px 0" },
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        zIndex: 1100,
       }}
     >
-      <Container maxWidth="lg">
+      <Container
+        maxWidth="lg"
+      >
         <Toolbar
           disableGutters
-          sx={{ justifyContent: "space-between", height: "72px", py: 1 }}
+          sx={{
+            justifyContent: "space-between",
+            minHeight: "60px !important",
+            background: scrolled
+              ? darkMode
+                ? "rgba(15, 23, 42, 0.8)"
+                : "rgba(255, 255, 255, 0.8)"
+              : "transparent",
+            backdropFilter: scrolled ? "blur(16px) saturate(180%)" : "none",
+            borderRadius: scrolled ? "50px" : "12px",
+            border: scrolled
+              ? `1px solid ${darkMode ? "rgba(255, 255, 255, 0.1)" : "rgba(255, 255, 255, 0.3)"}`
+              : "none",
+            boxShadow: scrolled
+              ? darkMode
+                ? "0 10px 30px -10px rgba(0, 0, 0, 0.5)"
+                : "0 10px 30px -10px rgba(0, 0, 0, 0.1)"
+              : "none",
+            transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+            px: scrolled ? 3 : 0,
+            width: "100%"
+          }}
         >
           <Logo />
 
           {isMobile ? (
-            // Mobile View: Hamburger Menu and Theme Toggle
-            <Stack direction="row" alignItems="center" spacing={1}>
-              <IconButton
-                onClick={toggleTheme}
-                sx={{
-                  background: darkMode
-                    ? "rgba(255, 255, 255, 0.1)"
-                    : "rgba(0, 0, 0, 0.05)",
-                  "&:hover": {
-                    background: darkMode
-                      ? "rgba(255, 255, 255, 0.2)"
-                      : "rgba(0, 0, 0, 0.1)",
-                    transform: "rotate(180deg)",
-                  },
-                  transition: "all 0.3s ease",
-                }}
-              >
+            <Stack direction="row" spacing={1} alignItems="center">
+              <IconButton onClick={toggleTheme} sx={{ color: darkMode ? 'white' : 'text.primary' }}>
                 {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
               </IconButton>
               <IconButton
-                aria-label="open drawer"
-                edge="end"
                 onClick={handleDrawerToggle}
                 sx={{
-                  background: darkMode
-                    ? "rgba(255, 255, 255, 0.1)"
-                    : "rgba(0, 0, 0, 0.05)",
-                  "&:hover": {
-                    background: darkMode
-                      ? "rgba(255, 255, 255, 0.2)"
-                      : "rgba(0, 0, 0, 0.1)",
-                    transform: "scale(1.1)",
-                  },
-                  transition: "all 0.3s ease",
+                  color: darkMode ? "white" : "text.primary",
+                  background: darkMode ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.05)",
                 }}
               >
                 <MenuIcon />
               </IconButton>
             </Stack>
           ) : (
-            // Desktop View: Modern Pill Navigation and Theme Toggle
-            <Stack direction="row" alignItems="center" spacing={2}>
+            <Stack direction="row" alignItems="center" spacing={1}>
               <Box
                 sx={{
                   display: "flex",
-                  gap: 0.5,
-                  background: darkMode
-                    ? "linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)"
-                    : "linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.02) 100%)",
-                  p: "8px",
+                  background: darkMode ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.5)",
                   borderRadius: "50px",
-                  border: `1px solid ${darkMode ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.1)"}`,
+                  p: 0.5,
+                  border: `1px solid ${darkMode ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)"}`,
                   backdropFilter: "blur(10px)",
                 }}
               >
@@ -555,49 +277,26 @@ const Header = ({ darkMode, toggleTheme }) => {
                   <Button
                     key={item.text}
                     onClick={() => handleMenuClick(item.href)}
-                    disableElevation
                     sx={{
-                      background:
-                        activeLink === item.href
-                          ? "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
-                          : "transparent",
-                      color:
-                        activeLink === item.href
-                          ? "white"
-                          : theme.palette.text.primary,
-                      borderRadius: "50px",
-                      fontWeight: 600,
-                      fontSize: "0.875rem",
+                      color: activeLink === item.href
+                        ? "#fff"
+                        : darkMode ? "#94a3b8" : "#64748b",
+                      background: activeLink === item.href
+                        ? "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+                        : "transparent",
+                      borderRadius: "30px",
+                      px: 2.5,
+                      py: 0.8,
+                      fontWeight: activeLink === item.href ? 600 : 500,
                       textTransform: "none",
-                      px: 3,
-                      py: 1,
                       minWidth: "auto",
-                      position: "relative",
-                      overflow: "hidden",
                       "&:hover": {
-                        background:
-                          activeLink === item.href
-                            ? "linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%)"
-                            : darkMode
-                              ? "rgba(255, 255, 255, 0.1)"
-                              : "rgba(0, 0, 0, 0.05)",
-                        transform: "translateY(-1px)",
+                        color: activeLink === item.href ? "#fff" : darkMode ? "#fff" : "#1e293b",
+                        background: activeLink === item.href
+                          ? "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+                          : darkMode ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.05)",
                       },
-                      "&::before": {
-                        content: '""',
-                        position: "absolute",
-                        top: 0,
-                        left: "-100%",
-                        width: "100%",
-                        height: "100%",
-                        background:
-                          "linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)",
-                        transition: "left 0.5s ease",
-                      },
-                      "&:hover::before": {
-                        left: "100%",
-                      },
-                      transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                      transition: "all 0.3s ease",
                     }}
                   >
                     {item.text}
@@ -605,72 +304,61 @@ const Header = ({ darkMode, toggleTheme }) => {
                 ))}
               </Box>
 
-              {/* Download Resume Button for Desktop */}
-              <Button
-                component="a"
-                href="/Mit_Jakasaniya_Resume.pdf"
-                download="Mit_Jakasaniya_Resume.pdf"
-                startIcon={<DownloadIcon />}
-                sx={{
-                  background:
-                    "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-                  color: "white",
-                  borderRadius: "50px",
-                  fontWeight: 600,
-                  fontSize: "0.875rem",
-                  textTransform: "none",
-                  px: 3,
-                  py: 1,
-                  "&:hover": {
-                    background:
-                      "linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%)",
-                    transform: "translateY(-2px)",
-                    boxShadow: "0 4px 15px rgba(102, 126, 234, 0.4)",
-                  },
-                  transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                }}
-              >
-                Resume
-              </Button>
+              <Box sx={{ width: "1px", height: "24px", bgcolor: darkMode ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)", mx: 2 }} />
 
               <IconButton
                 onClick={toggleTheme}
                 sx={{
-                  background: darkMode
-                    ? "linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)"
-                    : "linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.02) 100%)",
-                  border: `1px solid ${darkMode ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.1)"}`,
-                  backdropFilter: "blur(10px)",
+                  color: darkMode ? "#fbbf24" : "#f59e0b",
+                  transform: darkMode ? "rotate(0deg)" : "rotate(180deg)",
+                  transition: "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
                   "&:hover": {
-                    background: darkMode
-                      ? "rgba(255, 255, 255, 0.15)"
-                      : "rgba(0, 0, 0, 0.08)",
-                    transform: "rotate(180deg) scale(1.1)",
-                  },
-                  transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+                    bgcolor: darkMode ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.05)",
+                  }
                 }}
               >
                 {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
               </IconButton>
+
+              <Button
+                component="a"
+                href="/Mit_Jakasaniya_Resume.pdf"
+                download
+                variant="outlined"
+                className="system-cursor"
+                sx={{
+                  borderRadius: "50px",
+                  borderColor: darkMode ? "rgba(255, 255, 255, 0.2)" : "rgba(100, 100, 100, 0.2)",
+                  color: darkMode ? "#fff" : "#1e293b",
+                  textTransform: "none",
+                  fontWeight: 600,
+                  px: 2.5,
+                  minWidth: "auto",
+                  cursor: "pointer",
+                  "&:hover": {
+                    borderColor: "#667eea",
+                    color: "#667eea",
+                    background: "transparent"
+                  }
+                }}
+              >
+                Resume
+              </Button>
             </Stack>
           )}
         </Toolbar>
       </Container>
-
       <Drawer
         anchor="right"
         open={mobileOpen}
         onClose={handleDrawerToggle}
         ModalProps={{ keepMounted: true }}
-        sx={{
-          "& .MuiDrawer-paper": {
-            border: "none",
-            // Applying the glassmorphism effect to the drawer itself
-            backgroundColor: darkMode
-              ? "rgba(18, 18, 18, 0.9)"
-              : "rgba(255, 255, 255, 0.9)",
-            backdropFilter: "blur(10px)",
-          },
+        PaperProps={{
+          sx: {
+            background: "transparent",
+            boxShadow: "none",
+            width: "auto"
+          }
         }}
       >
         {drawer}

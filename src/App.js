@@ -1,16 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import { useState, useEffect } from "react";
 
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import About from "./components/About";
+import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import Education from "./components/Education";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
+import CustomCursor from "./components/CustomCursor";
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
@@ -34,42 +35,31 @@ function App() {
         contrastText: "#ffffff",
       },
       background: {
-        default: darkMode ? "#0f0f23" : "#fafbfc",
-        paper: darkMode ? "#1a1a2e" : "#ffffff",
+        default: darkMode ? "#0f172a" : "#f8fafc", // Deeper slate for dark mode, cleaner slate for light
+        paper: darkMode ? "#1e293b" : "#ffffff",
       },
       text: {
-        primary: darkMode ? "#e2e8f0" : "#1e293b",
+        primary: darkMode ? "#f1f5f9" : "#0f172a",
         secondary: darkMode ? "#94a3b8" : "#64748b",
       },
     },
     typography: {
       fontFamily:
         '"Inter", "Poppins", -apple-system, BlinkMacSystemFont, sans-serif',
-      h1: {
-        fontWeight: 800,
-      },
-      h2: {
-        fontWeight: 700,
-      },
-      h3: {
-        fontWeight: 600,
-      },
-      h4: {
-        fontWeight: 600,
-      },
-      h5: {
-        fontWeight: 600,
-      },
-      h6: {
-        fontWeight: 600,
-      },
+      h1: { fontWeight: 800, letterSpacing: "-0.025em" },
+      h2: { fontWeight: 700, letterSpacing: "-0.025em" },
+      h3: { fontWeight: 600, letterSpacing: "-0.025em" },
+      h4: { fontWeight: 600 },
+      h5: { fontWeight: 600 },
+      h6: { fontWeight: 600 },
       button: {
-        fontWeight: 500,
+        fontWeight: 600,
         textTransform: "none",
+        letterSpacing: "0.01em"
       },
     },
     shape: {
-      borderRadius: 12,
+      borderRadius: 16,
     },
     components: {
       MuiButton: {
@@ -77,7 +67,18 @@ function App() {
           root: {
             borderRadius: 50,
             textTransform: "none",
-            fontWeight: 500,
+            fontWeight: 600,
+            boxShadow: "none",
+            "&:hover": {
+              boxShadow: "none",
+            },
+          },
+        },
+      },
+      MuiPaper: {
+        styleOverrides: {
+          root: {
+            backgroundImage: "none",
           },
         },
       },
@@ -96,13 +97,15 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <CustomCursor />
       <Router>
         <div
           className={`min-h-screen ${darkMode ? "dark" : "light"}`}
           style={{
             background: darkMode
-              ? "linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%)"
-              : "linear-gradient(135deg, #fafbfc 0%, #f1f5f9 100%)",
+              ? "radial-gradient(circle at 50% 0%, #1e293b 0%, #0f172a 100%)"
+              : "radial-gradient(circle at 50% 0%, #f1f5f9 0%, #e2e8f0 100%)",
+            transition: "background 0.5s ease"
           }}
         >
           <Header darkMode={darkMode} toggleTheme={toggleTheme} />
