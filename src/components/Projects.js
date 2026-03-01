@@ -5,14 +5,6 @@ const Projects = () => {
   const theme = useTheme();
 
   const projects = [
-    
-    {
-      title: 'Netflix Clone',
-      period: 'Oct 2024 - Nov 2024',
-      description: 'Netflix Clone for Practicing Html, CSS, JavaScript .',
-      technologies: ['HTML', 'CSS' ],
-      tools: ['Visual Studio Code', 'GitHub'],
-    },
     {
       title: 'Smart Classroom Management System',
       period: 'Feb 2025 - Apr 2025',

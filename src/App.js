@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
-import { Code2, ChevronUp, MapPin, Phone, GraduationCap, Briefcase, Award, Mail, Github, Linkedin } from 'lucide-react';
+import { Code2, ChevronUp, MapPin, Phone, GraduationCap, Briefcase, Award, Mail, Github, Linkedin, ExternalLink } from 'lucide-react';
 import FloatingDockNav from './components/FloatingDockNav';
 
 /* ─────────────────────────────────────
@@ -69,6 +69,14 @@ const SKILLS_DATA = [
 ];
 
 const PROJECTS = [
+  {
+    title: 'SGP Freelancing Platform',
+    period: 'Jan 2026 - Mar 2026',
+    desc: 'An enterprise-grade freelancing marketplace connecting clients with freelancers. Features real-time SignalR messaging, JWT authentication, role-based access (Admin/Client/Freelancer), bidding system, contract management, portfolio showcase, review & rating system, and email verification with OTP — built on Clean Architecture with Repository + Unit of Work patterns.',
+    tags: ['ASP.NET Core 8.0', 'C#', 'Entity Framework Core', 'SQL Server', 'SignalR', 'JWT', 'Tailwind CSS', 'Bootstrap', 'Docker'],
+    tools: ['Visual Studio 2022', 'Git', 'Swagger', 'SendGrid', 'Serilog'],
+    liveUrl: 'https://freelancing-sgp.onrender.com/',
+  },
   {
     title: 'Smart Classroom Management System',
     period: 'Feb 2025 - Apr 2025',
@@ -307,7 +315,7 @@ function App() {
               <p style={{ fontSize: '16px', color: '#cbd5e1', lineHeight: 1.8, marginBottom: '20px' }}>{PERSONAL.aboutPara1}</p>
               <p style={{ fontSize: '16px', color: '#cbd5e1', lineHeight: 1.8, marginBottom: '20px' }}>{PERSONAL.aboutPara2}</p>
               <p style={{ fontSize: '16px', color: '#cbd5e1', lineHeight: 1.8 }}>
-                I love collaborating on innovative projects and have developed several applications including a Smart Classroom Management System, an Event Management System, and a Weather App. Apart from coding, I value teamwork, effective communication, and lifelong learning.
+                I love collaborating on innovative projects and have developed several applications including an enterprise-grade SGP Freelancing Platform, a Smart Classroom Management System, an Event Management System, and a Weather App. Apart from coding, I value teamwork, effective communication, and lifelong learning.
               </p>
             </div>
           </div>
@@ -389,20 +397,44 @@ function App() {
                   onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(6,182,212,0.35)'; e.currentTarget.style.boxShadow = '0 0 40px rgba(6,182,212,0.12), 0 20px 60px rgba(0,0,0,0.3)'; e.currentTarget.style.transform = 'translateY(-4px)'; }}
                   onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'; e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.transform = 'translateY(0)'; }}
                 >
-                  <h3 style={{ fontSize: '20px', fontWeight: 700, marginBottom: '6px', color: '#f1f5f9' }}>{project.title}</h3>
-                  <p style={{ fontSize: '13px', color: '#22d3ee', fontWeight: 500, marginBottom: '14px' }}>{project.period}</p>
-                  <p style={{ fontSize: '14px', color: '#94a3b8', lineHeight: 1.7, marginBottom: '20px', flex: 1 }}>{project.desc}</p>
+                  <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '8px', color: '#f8fafc', letterSpacing: '-0.5px' }}>{project.title}</h3>
+                  <p style={{ fontSize: '14px', color: '#06b6d4', fontWeight: 600, marginBottom: '16px', letterSpacing: '0.5px' }}>{project.period}</p>
+                  <p style={{ fontSize: '15px', color: '#94a3b8', lineHeight: 1.8, marginBottom: '24px', flex: 1 }}>{project.desc}</p>
 
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '16px' }}>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '24px' }}>
                     {project.tags.map((tag, j) => (
-                      <span key={j} style={{ padding: '5px 14px', borderRadius: '8px', background: 'rgba(30, 41, 59, 0.8)', border: '1px solid rgba(255,255,255,0.06)', fontSize: '12px', fontWeight: 500, color: '#94a3b8' }}>
+                      <span key={j} style={{ padding: '6px 14px', borderRadius: '10px', background: '#1e293b', border: '1px solid rgba(255,255,255,0.08)', fontSize: '13px', fontWeight: 600, color: '#cbd5e1', transition: 'all 0.2s', cursor: 'default' }}
+                        onMouseEnter={(e) => { e.currentTarget.style.background = '#334155'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)'; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.background = '#1e293b'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; }}
+                      >
                         {tag}
                       </span>
                     ))}
                   </div>
-                  <p style={{ fontSize: '12px', color: '#475569' }}>
-                    <span style={{ fontWeight: 600, color: '#64748b' }}>Tools:</span> {project.tools.join(', ')}
-                  </p>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 'auto', paddingTop: '16px' }}>
+                    <p style={{ fontSize: '13px', color: '#64748b', margin: 0 }}>
+                      <span style={{ fontWeight: 700, color: '#94a3b8' }}>Tools:</span> {project.tools.join(', ')}
+                    </p>
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          display: 'inline-flex', alignItems: 'center', gap: '6px',
+                          padding: '6px 16px', borderRadius: '999px',
+                          background: 'linear-gradient(135deg, rgba(34,211,238,0.15), rgba(6,182,212,0.08))',
+                          border: '1px solid rgba(34,211,238,0.25)',
+                          color: '#22d3ee', fontSize: '12px', fontWeight: 600,
+                          textDecoration: 'none', transition: 'all 0.3s',
+                        }}
+                        onMouseEnter={(e) => { e.currentTarget.style.background = 'linear-gradient(135deg, rgba(34,211,238,0.25), rgba(6,182,212,0.15))'; e.currentTarget.style.boxShadow = '0 0 20px rgba(34,211,238,0.15)'; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.background = 'linear-gradient(135deg, rgba(34,211,238,0.15), rgba(6,182,212,0.08))'; e.currentTarget.style.boxShadow = 'none'; }}
+                      >
+                        <ExternalLink size={13} /> Live Demo
+                      </a>
+                    )}
+                  </div>
                 </motion.div>
               ))}
             </div>
