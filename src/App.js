@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
-import { Github, Linkedin, Mail, ExternalLink, Code2, ChevronUp, Menu, X, MapPin, Phone, GraduationCap, Briefcase, Award } from 'lucide-react';
+import { Code2, ChevronUp, MapPin, Phone, GraduationCap, Briefcase, Award, Mail, Github, Linkedin } from 'lucide-react';
+import FloatingDockNav from './components/FloatingDockNav';
 
 /* ─────────────────────────────────────
    YOUR DATA
@@ -192,19 +193,10 @@ function SectionHeading({ children, accent }) {
    ───────────────────────────────────── */
 function App() {
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
-  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 60);
-      const sections = document.querySelectorAll('section[id]');
-      sections.forEach((s) => {
-        const top = s.offsetTop - 120;
-        if (window.scrollY >= top && window.scrollY < top + s.offsetHeight) {
-          setActiveSection(s.id);
-        }
-      });
     };
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
@@ -229,58 +221,9 @@ function App() {
       <div style={{ position: 'fixed', bottom: '-25%', right: '-15%', width: '55%', height: '55%', background: 'radial-gradient(circle, rgba(6,182,212,0.12) 0%, transparent 70%)', borderRadius: '50%', pointerEvents: 'none', zIndex: 0, animation: 'float 10s ease-in-out infinite reverse' }} />
 
       {/* ════════════════════════════════════
-          NAVBAR
+          FLOATING DOCK NAVIGATION
           ════════════════════════════════════ */}
-      <header style={{
-        position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
-        padding: scrolled ? '12px 0' : '20px 0',
-        background: scrolled ? 'rgba(2, 6, 23, 0.85)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(20px) saturate(180%)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.05)' : 'none',
-        transition: 'all 0.35s ease',
-      }}>
-        <div style={{ ...containerStyle, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <a href="#home" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <Code2 color="#22d3ee" size={28} />
-            <span style={{ fontSize: '20px', fontWeight: 800, color: '#f1f5f9', letterSpacing: '-0.5px' }}>
-              Mit<span style={{ color: '#22d3ee' }}>.</span>dev
-            </span>
-          </a>
-
-          <nav style={{ display: 'flex', gap: '28px', alignItems: 'center' }} className="desktop-nav">
-            {NAV_LINKS.map((l) => (
-              <a key={l.name} href={l.href} style={{
-                textDecoration: 'none', fontSize: '13px', fontWeight: 500,
-                color: activeSection === l.href.slice(1) ? '#22d3ee' : '#94a3b8',
-                transition: 'color 0.2s',
-              }}
-                onMouseEnter={(e) => (e.target.style.color = '#22d3ee')}
-                onMouseLeave={(e) => (e.target.style.color = activeSection === l.href.slice(1) ? '#22d3ee' : '#94a3b8')}
-              >{l.name}</a>
-            ))}
-          </nav>
-
-          <button onClick={() => setMenuOpen(!menuOpen)} className="mobile-menu-btn" style={{ display: 'none', background: 'none', border: 'none', color: '#f1f5f9', cursor: 'pointer' }}>
-            {menuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-
-        <AnimatePresence>
-          {menuOpen && (
-            <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }}
-              style={{ overflow: 'hidden', background: 'rgba(2,6,23,0.95)', borderTop: '1px solid rgba(255,255,255,0.05)' }} className="mobile-nav">
-              <div style={{ ...containerStyle, padding: '16px 24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                {NAV_LINKS.map((l) => (
-                  <a key={l.name} href={l.href} onClick={() => setMenuOpen(false)} style={{
-                    textDecoration: 'none', fontSize: '16px', fontWeight: 500,
-                    color: activeSection === l.href.slice(1) ? '#22d3ee' : '#94a3b8',
-                  }}>{l.name}</a>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </header>
+      <FloatingDockNav />
 
       <main style={{ position: 'relative', zIndex: 1 }}>
 
