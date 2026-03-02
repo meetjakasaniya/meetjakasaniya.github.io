@@ -264,7 +264,7 @@ const Hero = () => {
             >
               <Box
                 component="img"
-                src="https://i.postimg.cc/PJgvgJsk/meet.jpg"
+                src="https://drive.google.com/file/d/1g8KLiWiO2bDoiDa0_rlBODJ_qRg1sLcb/view?usp=drivesdk"
                 alt="Mit Jakasaniya"
                 sx={{
                   width: { xs: 280, md: 350, lg: 400 },
