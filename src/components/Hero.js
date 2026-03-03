@@ -263,7 +263,7 @@ const Hero = () => {
               }}
             >
               <Box
-                component="img"           src="https://freeimage.host/i/qqDW1B1"
+                component="img" src="/mit_image.jpeg"
                 alt="Mit Jakasaniya"
                 sx={{
                   width: { xs: 280, md: 350, lg: 400 },

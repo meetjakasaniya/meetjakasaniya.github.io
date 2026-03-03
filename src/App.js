@@ -9,7 +9,7 @@ import FloatingDockNav from './components/FloatingDockNav';
 const PERSONAL = {
   name: 'Mit Jakasaniya',
   title: 'Full Stack Developer',
-  photo: 'https://i.postimg.cc/PJgvgJsk/meet.jpg',
+  photo: '/mit_image.jpeg',
   email: 'meetjaka46@gmail.com',
   phone: '+91 7990343887',
   location: 'Morbi, Gujarat, India',
